@@ -24,14 +24,13 @@
     "react-hot-loader": "^1.2.4",
     "style-loader": "^0.12.1",
     "webpack": "^1.8.4",
-    "webpack-dev-server": "^1.8.0"
+    "webpack-dev-server": "^1.8.0",
+    "timekeeper": "0.0.5"
   },
   "dependencies": {
-    "commonmark": "^0.18.1",
     "es6-promise": "^2.0.1",
     "flummox": "^3.5.2",
-    "isomorphic-fetch": "^2.0.1",
     "react": "^0.13.2",
-    "react-router": "^0.13.2"
+    "react-router": "^0.13.2",
   }
 }
