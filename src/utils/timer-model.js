@@ -18,13 +18,17 @@ export default (options)=> {
 		play();
 	};
 
-	let getTime = () => {
+	let getElapsed = () => {
 		let elapsedMs = 0;
-		my.times.each((t, i) => {
-			if(i % 2 === 0 && mt.times[i+1] !== undefined) {
-
+		my.times.forEach((t, i) => {
+			if(i % 2 === 0 && my.times[i+1] !== undefined) {
+				elapsedMs += my.times[i+1].getTime() - t.getTime();
 			}
 		});
+
+		if (my.times.length > 0 && isActive()) {
+			elapsedMs += new Date().getTime() - my.times[my.times.length-1].getTime();
+		}
 		return elapsedMs;
 	};
 
@@ -35,7 +39,7 @@ export default (options)=> {
 	return Object.freeze({
 		start: play,
 		pause: pause,
-		time: getTime,
+		getElapsed: getElapsed,
 		isActive: isActive
 	});
 };

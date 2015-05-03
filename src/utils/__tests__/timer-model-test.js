@@ -1,4 +1,5 @@
 import Timer from '../timer-model';
+import tk from 'timekeeper';
 
 describe('The Timer Model', function() {
 	beforeEach(() => {
@@ -14,10 +15,30 @@ describe('The Timer Model', function() {
 		expect(this.timer.isActive()).to.equal(true)
 	});
 
-	it('can stop', ()=> {
+	it('can pause', ()=> {
 		this.timer.start();
 		expect(this.timer.isActive()).to.equal(true)
 		this.timer.pause();
 		expect(this.timer.isActive()).to.equal(false)
+	});
+
+	it('keeps time', ()=> {
+		tk.freeze(new Date(0));
+		this.timer.start();
+		tk.freeze(new Date(1000));
+
+		expect(this.timer.getElapsed()).to.equal(1000);
+	});
+
+	it('keeps accurate time after pausing and restarting', ()=> {
+		tk.freeze(new Date(0));
+		this.timer.start();
+		tk.freeze(new Date(1000));
+		this.timer.pause();
+		tk.freeze(new Date(1500));
+		this.timer.start();
+		tk.freeze(new Date(2000));
+
+		expect(this.timer.getElapsed()).to.equal(1500);
 	});
 });
