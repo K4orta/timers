@@ -10,6 +10,13 @@ describe('The Timer Model', function() {
 		expect(this.timer).to.be.an('object');
 	});
 
+	it('has a unique ID', ()=> {
+		let t2 = Timer({
+			id: 1
+		});
+		expect(this.timer.id).to.not.equal(t2.id);
+	});
+
 	it('can start', ()=> {
 		this.timer.start();
 		expect(this.timer.isActive()).to.equal(true)

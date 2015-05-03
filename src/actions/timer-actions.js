@@ -1,6 +1,6 @@
 import {Actions} from 'flummox';
 
-export default class HeroActions extends Actions {
+export default class TimerActions extends Actions {
 	createTimer() {
 		
 	}

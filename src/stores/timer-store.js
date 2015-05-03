@@ -1,18 +1,21 @@
 import { Store } from 'flummox';
+import Timer from '../utils/timer-model';
 
 export default class TimerStore extends Store {
 	constructor({ timerActions }) {
 		super();
 
-		this.register(timerActions.createTimer, this.createTimer);
+		if(timerActions !== undefined) {
+			this.register(timerActions.createTimer, this.createTimer);
+		}
 
 		this.state = {
 			timers: []
 		};
 	}
 
-	createTimer(timer) {	
-		this.state.timers.push(timer);
+	createTimer(options) {	
+		this.state.timers.push(Timer(options));
 	}
 
 	getTimers() {

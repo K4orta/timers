@@ -5,7 +5,7 @@ class Layout extends React.Component {
 	render() {
 		return (
 			<div>
-				<RouteHandler />
+				<RouteHandler {...this.props} />
 			</div>
 		);
 	}

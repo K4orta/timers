@@ -7,8 +7,11 @@
  */
 
 export default (options)=> {
-	let my = { options };
+	let my = options || {};
 	my.times = [];
+	if (my.id === undefined) {
+		my.id = 0;
+	}
 
 	let play = () => {
 		my.times.push(new Date());
@@ -37,6 +40,7 @@ export default (options)=> {
 	};
 
 	return Object.freeze({
+		id: my.id,
 		start: play,
 		pause: pause,
 		getElapsed: getElapsed,
