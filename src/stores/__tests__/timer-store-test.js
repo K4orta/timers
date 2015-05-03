@@ -11,4 +11,9 @@ describe('The Timer Store', function() {
 	it('starts with an empty array of timers', ()=> {
 		expect(this.store.getTimers().length).to.equal(0);
 	});
+
+	it('can add timers', ()=> {
+		this.store.createTimer({id: 0});
+		expect(this.store.getTimers().length).to.equal(1);
+	});
 });
