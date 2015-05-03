@@ -1,18 +1,18 @@
 import React from 'react';
-import Timer from './timer-list';
+import Timer from './timer';
 
 class TimerList extends React.Component {
 	render() {
 		let timers = this.props.timers.map((t) => {
 			return (
-				<Timer />
+				<Timer timer={t} />
 			);
 		});
 
 		return (
-			<div className='row'>
+			<ul className='timer-list'>
 				{timers}
-			</div>
+			</ul>
 		);
 	}
 };

@@ -1,7 +1,7 @@
 import {Actions} from 'flummox';
 
 export default class TimerActions extends Actions {
-	createTimer() {
-		
+	createTimer(spec) {
+		return spec;
 	}
 };

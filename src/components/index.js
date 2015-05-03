@@ -3,6 +3,8 @@ import TimerList from './timers/timer-list';
 import CreateBtn from './ui/create-btn';
 import FluxComponent from 'flummox/component';
 
+let ids = 0;
+
 class Index extends React.Component {
 	render() {
 		return (
@@ -19,8 +21,11 @@ class Index extends React.Component {
 	 * @param {Event} event passed by the click handler
 	 */
 	_addTimer(e) {
-		let timers = this.props.flux.getStore('timers');
-		timers.createTimer({name: ''});
+		let timers = this.props.flux.getActions('timers');
+		timers.createTimer({
+			id: ids++,
+		 	name: ''
+		});
 
 	}
 }
